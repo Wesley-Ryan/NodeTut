@@ -1,4 +1,5 @@
-const fs = require("fs");
+const fs = require("fs"); //file system
+const http = require("http"); //networking
 
 //Blocking
 const textIn = fs.readFileSync("./txt/input.txt", "utf-8");
@@ -21,4 +22,12 @@ fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
     });
   });
 });
-console.log("Will run first");
+
+//Networking "Server"
+const server = http.createServer((req, res) => {
+  res.end("Hello from the server 😁");
+});
+
+server.listen(7777, "127.0.0.1", () => {
+  console.log("server go brrrrpppppppp");
+});
